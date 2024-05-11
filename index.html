@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Declaración de amor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="love.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+  <div id="pantalla1" class="pantalla">
+    <h1></h1>
+    <button id="botonContinuar">Continuar</button>
+    <button onclick="location.reload()">Cancelar</button>
+  </div>
+
+  <div id="pantalla2" class="pantalla oculto">
+    <h1></h1>
+    <div class="collage">
+      <div class="foto"><img src="a (1).jpg" alt="Imagen 1"></div>
+      <div class="foto"><img src="a (1).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (2).webp" alt="Imagen 3"></div>
+      <div class="foto"><img src="a (3).webp" alt="Imagen 1"></div>
+      <div class="foto"><img src="a (4).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (5).webp" alt="Imagen 3"></div>
+      <div class="foto"><img src="a (6).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (7).webp" alt="Imagen 3"></div>
+      <div class="foto"><img src="a (8).webp" alt="Imagen 1"></div>
+      <div class="foto"><img src="a (9).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (10).webp" alt="Imagen 3"></div>
+      <div class="foto"><img src="a (11).webp" alt="Imagen 1"></div>
+      <div class="foto"><img src="a (12).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (13).webp" alt="Imagen 3"></div>
+      <div class="foto"><img src="a (14).webp" alt="Imagen 1"></div>
+      <div class="foto"><img src="a (15).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (16).webp" alt="Imagen 3"></div>
+      <div class="foto"><img src="a (17).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (18).webp" alt="Imagen 3"></div>
+      <div class="foto"><img src="a (19).webp" alt="Imagen 1"></div>
+      <div class="foto"><img src="a (20).webp" alt="Imagen 2"></div>
+      <div class="foto"><img src="a (21).webp" alt="Imagen 3"></div>
+    </div>
+    <button onclick="mostrarPantalla('pantalla3')">Continuar</button>
+    <button onclick="location.reload()">Cancelar</button>
+  </div>
+
+  <div id="pantalla3" class="pantalla oculto">
+    <h1></h1>
+    <button onclick="mostrarPantalla('pantalla4')" data-reiniciar-contador>Obvio bbsito lindo 😍💕</button>
+    <button onclick="location.reload()">Tengo a otro 🤣🤣</button>
+  </div>
+  
+  <div id="pantalla4" class="pantalla oculto">
+    <h1>¡Desde hace <span id="contador">0</span> oficialmente somos novios 😭💕!</h1>
+  </div>  
+
+  <script src="script.js"></script>
+</body>
+</html>
