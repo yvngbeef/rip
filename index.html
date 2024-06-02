@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>@victimize</title>
     <style>
-        @import url('https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
 
         body, html {
             margin: 0;
@@ -16,9 +16,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Cinzel', serif;
             background-color: black;
             color: white;
+            overflow: hidden;
         }
 
         .entrance-screen, .main-content {
@@ -31,12 +32,17 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            transition: opacity 1s;
         }
 
         .main-content {
             display: none;
             background-image: url("lol.png");
             background-size: cover;
+        }
+
+        .entrance-screen.fade-out {
+            opacity: 0;
         }
 
         img {
@@ -48,7 +54,7 @@
 
 <body>
     <div class="entrance-screen" id="entrance-screen">
-        <div>[ Click to enter into your soul ... ]</div>
+        <div>[ Click here to enter to your suffering ]</div>
     </div>
 
     <div class="main-content" id="main-content">
@@ -58,14 +64,17 @@
 
     <script>
         document.getElementById('entrance-screen').addEventListener('click', function () {
-            document.getElementById('entrance-screen').style.display = 'none';
-            document.getElementById('main-content').style.display = 'flex';
-            
-            const audio = document.getElementById('background-audio');
-            audio.play().catch(error => {
-                console.log("Autoplay failed:", error);
-                setTimeout(() => audio.play(), 1000);  // Try again after 1 second
-            });
+            const entranceScreen = document.getElementById('entrance-screen');
+            entranceScreen.classList.add('fade-out');
+            setTimeout(function () {
+                entranceScreen.style.display = 'none';
+                document.getElementById('main-content').style.display = 'flex';
+                const audio = document.getElementById('background-audio');
+                audio.play().catch(error => {
+                    console.log("Autoplay failed:", error);
+                    setTimeout(() => audio.play(), 1000);  // Try again after 1 second
+                });
+            }, 1000);  // Duration of the fade-out transition
         });
     </script>
 </body>
