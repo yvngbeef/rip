@@ -5,6 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>@victimize</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="no soltarme a ti t enkanta">
+    <meta name="author" content="@victimize">
+    <meta name="keywords" content="challenge, suffer, fun, interactive">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="@victimize">
+    <meta property="og:description" content="no soltarme a ti t enkanta">
+    <meta property="og:image" content="http://bhop.fun/vile.gif"> <!-- Replace with your image URL -->
+    <meta property="og:url" content="http://bhop.fun"> <!-- Replace with your URL -->
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://pbs.twimg.com/profile_images/1495966139385450498/MwM6R8L1_400x400.jpg">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap');
 
@@ -76,15 +92,4 @@
             entranceScreen.classList.add('fade-out');
             setTimeout(function () {
                 entranceScreen.style.display = 'none';
-                document.getElementById('main-content').style.display = 'flex';
-                const audio = document.getElementById('background-audio');
-                audio.play().catch(error => {
-                    console.log("Autoplay failed:", error);
-                    setTimeout(() => audio.play(), 1000);  // Try again after 1 second
-                });
-            }, 1000);  // Duration of the fade-out transition
-        });
-    </script>
-</body>
-
-</html>
+                document.getElementById('
