@@ -24,15 +24,21 @@
 </head>
 
 <body>
-    <audio id="background-audio" src="deus.mp3" loop autoplay></audio>
+    <audio id="background-audio" src="deus.mp3" loop></audio>
     <img src="vile.gif" alt="Profile Picture">
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const audio = document.getElementById('background-audio');
-            audio.play().catch(error => {
-                console.log("Autoplay failed:", error);
-            });
+            
+            function playAudio() {
+                audio.play().catch(error => {
+                    console.log("Autoplay failed:", error);
+                    setTimeout(playAudio, 1000);  // Try again after 1 second
+                });
+            }
+
+            playAudio();
         });
     </script>
 </body>
