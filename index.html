@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width">
     <title>@victimize</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:700&display=swap');
+
         body, html {
             margin: 0;
             padding: 0;
@@ -14,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'UnifrakturCook', serif;
             overflow: hidden;
             color: white;
         }
@@ -70,7 +72,7 @@
     <div class="main-content" id="main-content">
         <audio id="background-audio" src="deus.mp3" loop></audio>
         <img src="vile.gif" alt="Profile Picture">
-        <div class="ip-info" id="ip-info">Doxing you</div>
+        <div class="ip-info" id="ip-info">Loading IP information...</div>
     </div>
 
     <script>
@@ -90,16 +92,11 @@
         });
 
         function fetchIPInfo() {
-            fetch('https://ipapi.co/json/')
+            fetch('https://api.ipify.org?format=json')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('ip-info').innerText = `
-                        IP: ${data.ip}
-                        City: ${data.city}
-                        Region: ${data.region}
-                        Country: ${data.country_name}
-                        Latitude: ${data.latitude}
-                        Longitude: ${data.longitude}
+                        Your IP Address: ${data.ip}
                     `;
                 })
                 .catch(error => {
