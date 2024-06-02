@@ -18,7 +18,6 @@
     <meta property="og:url" content="http://bhop.fun"> <!-- Replace with your URL -->
     <meta property="og:type" content="website">
 
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap');
 
@@ -27,13 +26,23 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-family: 'Satoshi', sans-serif;
             overflow: hidden;
             color: white;
-            background-color: black; /* Fondo negro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Fondo negro para cuando el video no se cargue */
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Enviar el video al fondo */
+            object-fit: cover; /* Asegurar que el video cubra toda la pantalla */
         }
 
         .entrance-screen, .main-content {
@@ -47,9 +56,6 @@
             align-items: center;
             flex-direction: column;
             transition: opacity 1s;
-            background-image: url("lol.png");
-            background-size: cover;
-            background-position: center;
         }
 
         .main-content {
@@ -61,14 +67,6 @@
             pointer-events: none;
         }
 
-        img {
-            max-width: 90%;
-            max-height: 90%;
-            height: auto;
-            object-fit: contain; /* Mantener la calidad y relación de aspecto */
-            margin-bottom: 20px;
-        }
-
         .click-text {
             font-size: 30px; /* Tamaño más grande */
         }
@@ -76,13 +74,18 @@
 </head>
 
 <body>
+    <video autoplay muted loop class="video-background">
+        <source src="saint.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="entrance-screen" id="entrance-screen">
         <div class="click-text">[ Click here to suffer ]</div>
     </div>
 
     <div class="main-content" id="main-content">
         <audio id="background-audio" src="deus.mp3" loop></audio>
-        <img src="vile.gif" alt="Profile Picture">
+        <!-- <img src="vile.gif" alt="Profile Picture"> --> <!-- Imagen comentada para que no se muestre -->
     </div>
 
     <script>
