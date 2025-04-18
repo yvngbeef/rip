@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>victim.cam — Pricing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Satoshi', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="w-full flex justify-between items-center px-10 py-6 border-b border-white/10 bg-black sticky top-0 z-50">
+    <div class="flex items-center gap-3">
+        <a href="index.html" class="text-2xl font-medium text-white">
+            victim<span class="text-blue-400">.</span>cam
+          </a>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-lg text-gray-400">
+      <a href="help.html" class="hover:text-white transition">Help</a>
+      <a href="discord.html" class="hover:text-white transition">Discord</a>
+      <a href="pricing.html" class="hover:text-white transition">Pricing</a>
+      <a href="pricing.html" class="bg-blue-400 hover:bg-blue-500 active:scale-95 transition px-6 py-3 rounded-xl text-black text-base font-medium">
+        Buy Now
+      </a>
+    </nav>
+  </header>
+
+  <!-- Pricing Section -->
+  <main class="flex-grow px-6 py-20">
+    <h1 class="text-4xl font-semibold text-center text-white mb-16">
+      Choose Your Plan
+    </h1>
+
+    <div class="w-full flex flex-wrap justify-center items-start gap-6">
+      <!-- Biolink Plan -->
+      <div class="bg-[#0e0e0e] border border-white/10 rounded-2xl p-10 flex flex-col justify-between min-h-[460px] w-full max-w-md hover:scale-105 transform transition-all duration-300 ease-in-out">
+        <div>
+          <h2 class="text-2xl font-semibold mb-2 flex items-center gap-2">
+            <i class="fas fa-link text-white"></i> Biolink
+          </h2>
+          <p class="text-xl text-white mb-1">4,99€ <span class="text-base text-gray-400">/lifetime</span></p>
+          <p class="text-sm text-gray-400 mb-6">
+            Create your own customizable link-in-bio profile, with full control and a clean layout.
+          </p>
+          <ul class="text-sm text-blue-300 space-y-2">
+            <li>✔ Custom Biolink Page</li>
+            <li>✔ Custom Support 24/7</li>
+            <li>✔ Discord Role Access</li>
+          </ul>
+        </div>
+        <a href="https://victimcam.mysellauth.com/product/biolink" class="mt-8 flex items-center justify-center gap-2 bg-blue-400 hover:bg-blue-500 text-black font-medium py-3 rounded-full transition text-sm hover:scale-105 hover:shadow-lg">
+          Purchase <i class="fas fa-gift text-sm"></i>
+        </a>
+      </div>
+
+      <!-- Image Host + Mail Plan -->
+      <div class="bg-[#0e0e0e] border border-white/10 rounded-2xl p-10 flex flex-col justify-between min-h-[460px] w-full max-w-md hover:scale-105 transform transition-all duration-300 ease-in-out">
+        <div>
+          <h2 class="text-2xl font-semibold mb-2 flex items-center gap-2">
+            <i class="fas fa-image text-white"></i> Image Host + Mail
+          </h2>
+          <p class="text-xl text-white mb-1">6,99€ <span class="text-base text-gray-400">/lifetime</span></p>
+          <p class="text-sm text-gray-400 mb-6">
+            Upload and share images instantly. Includes access to your own mail service.
+          </p>
+          <ul class="text-sm text-blue-300 space-y-2">
+            <li>✔ Fast Uploads</li>
+            <li>✔ Image Gallery</li>
+            <li>✔ Custom Domains</li>
+            <li>✔ Personal Email Address</li>
+          </ul>
+        </div>
+        <a href="#" class="mt-8 flex items-center justify-center gap-2 bg-blue-400 hover:bg-blue-500 text-black font-medium py-3 rounded-full transition text-sm hover:scale-105 hover:shadow-lg">
+          Coming soon... <i class="fas fa-gift text-sm"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-600 py-10">
+    © 2025 victim.cam — all rights reserved.
+  </footer>
+
+</body>
+</html>
